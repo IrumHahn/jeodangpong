@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="저당과자 브랜드 저당퐁의 모든 제품을 만나보세요.">
+    <meta name="theme-color" content="#ff5c35">
+    <title>제품 | 저당퐁</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body class="products-page">
+    <header class="site-header">
+      <a class="logo" href="index.html" aria-label="저당퐁 홈">저당<span>퐁!</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+      </button>
+      <nav id="site-menu" aria-label="주요 메뉴">
+        <a href="index.html#about">내 소개</a>
+        <a class="is-current" href="products.html" aria-current="page">제품</a>
+        <a href="index.html#stories">이야기</a>
+        <a class="nav-contact" href="index.html#contact">연락하기 <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="product-page-hero">
+        <div class="reveal">
+          <p class="eyebrow">ALL PRODUCTS</p>
+          <h1>가볍게 즐기는<br><em>바삭한 선택.</em></h1>
+        </div>
+        <p class="reveal">맛있는 순간을 포기하지 않도록,<br>저당퐁이 고른 간식을 만나보세요.</p>
+        <span class="product-page-pop" aria-hidden="true">YUM!</span>
+      </section>
+
+      <section class="products products-catalog section" aria-labelledby="catalog-title">
+        <div class="catalog-heading reveal">
+          <div class="section-label"><span>01</span> SHOP</div>
+          <h2 id="catalog-title">모든 제품</h2>
+        </div>
+        <div class="product-grid" data-products-grid aria-live="polite">
+          <p class="product-status">제품을 불러오는 중이에요…</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="logo footer-logo" href="index.html">저당<span>퐁!</span></a>
+      <div><p>저당과자 브랜드 저당퐁</p><p>© 2026 JEODANGPONG. ALL RIGHTS RESERVED.</p></div>
+      <div class="footer-links"><a href="#">Instagram</a><a href="https://smartstore.naver.com/poongsimdang" target="_blank" rel="noopener noreferrer">Smart Store</a><a href="#">이용약관</a></div>
+      <button class="to-top" type="button" aria-label="맨 위로 이동">↑</button>
+    </footer>
+  </body>
+</html>

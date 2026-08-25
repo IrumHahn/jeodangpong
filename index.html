@@ -21,7 +21,7 @@
       </button>
       <nav id="site-menu" aria-label="주요 메뉴">
         <a href="#about">내 소개</a>
-        <a href="#products">제품</a>
+        <a href="products.html">제품</a>
         <a href="#stories">이야기</a>
         <a class="nav-contact" href="#contact">연락하기 <span aria-hidden="true">↗</span></a>
       </nav>
@@ -40,12 +40,12 @@
           <div class="orbit orbit-two"></div>
           <span class="spark spark-one">✦</span>
           <span class="spark spark-two">✦</span>
-          <div class="pack pack-main">
-            <span class="pack-top">CRUNCHY &amp; LIGHT</span>
-            <strong>저당<br><i>퐁!</i></strong>
-            <span class="pack-flavor">콘소메 구름칩</span>
-            <span class="pack-badge">당류<br><b>2g</b></span>
-          </div>
+          <a class="pack pack-main hero-product-card" data-featured-product href="products.html" aria-label="대표 제품 보기">
+            <span class="pack-top">POONGSIMDANG SNACK</span>
+            <img class="hero-product-image" data-featured-image alt="" hidden>
+            <span class="pack-flavor" data-featured-name>대표 제품을 불러오는 중</span>
+            <span class="pack-badge">BEST<br><b>PICK</b></span>
+          </a>
           <span class="chip chip-one"></span>
           <span class="chip chip-two"></span>
           <span class="chip chip-three"></span>
@@ -76,32 +76,14 @@
       <section class="products section" id="products">
         <div class="section-heading reveal">
           <div class="section-label"><span>02</span> PRODUCTS</div>
-          <h2>오늘은 어떤 맛으로<br><em>퐁!</em> 할까요?</h2>
+          <div class="product-heading-copy">
+            <h2>오늘은 어떤 맛으로<br><em>퐁!</em> 할까요?</h2>
+            <a class="all-products-link" href="products.html">전체 제품 보기 <span aria-hidden="true">→</span></a>
+          </div>
         </div>
-        <div class="product-grid">
-          <article class="product-card product-orange reveal">
-            <div class="product-art">
-              <div class="mini-pack orange-pack"><small>CRUNCHY &amp; LIGHT</small><strong>저당<br><i>퐁!</i></strong><span>콘소메 구름칩</span></div>
-              <span class="floating-copy">BEST!</span>
-            </div>
-            <div class="product-info"><div><p>바삭하고 짭짤한</p><h3>콘소메 구름칩</h3></div><span>당류 2g</span></div>
-          </article>
-          <article class="product-card product-yellow reveal">
-            <div class="product-art">
-              <div class="mini-pack yellow-pack"><small>SWEET &amp; CRISPY</small><strong>저당<br><i>퐁!</i></strong><span>카라멜 곡물볼</span></div>
-              <span class="floating-copy">NEW!</span>
-            </div>
-            <div class="product-info"><div><p>달콤하고 오독오독한</p><h3>카라멜 곡물볼</h3></div><span>당류 3g</span></div>
-          </article>
-          <article class="product-card product-mint reveal">
-            <div class="product-art">
-              <div class="mini-pack mint-pack"><small>SALTY &amp; SAVORY</small><strong>저당<br><i>퐁!</i></strong><span>어니언 링스낵</span></div>
-              <span class="floating-copy">PICK!</span>
-            </div>
-            <div class="product-info"><div><p>고소하고 담백한</p><h3>어니언 링스낵</h3></div><span>당류 1g</span></div>
-          </article>
+        <div class="product-grid" data-products-grid data-limit="3" aria-live="polite">
+          <p class="product-status">제품을 불러오는 중이에요…</p>
         </div>
-        <p class="product-note">* 제품명과 영양 정보는 예시이며, 실제 출시 정보로 추후 변경될 예정입니다.</p>
       </section>
 
       <section class="stories section" id="stories">
@@ -145,7 +127,7 @@
     <footer>
       <a class="logo footer-logo" href="#home">저당<span>퐁!</span></a>
       <div><p>저당과자 브랜드 저당퐁</p><p>© 2026 JEODANGPONG. ALL RIGHTS RESERVED.</p></div>
-      <div class="footer-links"><a href="#">Instagram</a><a href="#">Smart Store</a><a href="#">이용약관</a></div>
+      <div class="footer-links"><a href="#">Instagram</a><a href="https://smartstore.naver.com/poongsimdang" target="_blank" rel="noopener noreferrer">Smart Store</a><a href="#">이용약관</a></div>
       <button class="to-top" type="button" aria-label="맨 위로 이동">↑</button>
     </footer>
   </body>
