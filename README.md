@@ -16,6 +16,7 @@ python3 -m http.server 4173
 
 - `index.html` — 페이지 콘텐츠와 구조
 - `products.html` — 전체 제품 목록 페이지
+- `contact.html` — 이메일, Threads, 스토어 연락 페이지
 - `products.json` — 홈과 제품 페이지에서 함께 사용하는 제품 데이터
 - `styles.css` — 반응형 스타일과 애니메이션
 - `script.js` — 제품 데이터 표시, 모바일 메뉴, 스크롤 등장 효과, 맨 위로 이동
