@@ -176,3 +176,97 @@ const renderProducts = async () => {
 };
 
 renderProducts();
+
+const formatStoryDate = (dateString) => {
+  const [year, month, day] = String(dateString || '').split('-');
+  return year && month && day ? `${year}. ${month}. ${day}` : String(dateString || '');
+};
+
+const createStoryVisual = (index) => {
+  const visual = document.createElement('div');
+  visual.className = `story-image story-${['one', 'two', 'three'][index % 3]}`;
+
+  if (index % 3 === 0) {
+    const question = document.createElement('span');
+    question.textContent = '?';
+    const label = document.createElement('b');
+    label.innerHTML = 'LOW<br>SUGAR';
+    visual.append(question, label);
+  } else if (index % 3 === 1) {
+    const label = document.createElement('span');
+    label.innerHTML = 'GOOD<br>CHOICE!';
+    const check = document.createElement('i');
+    check.textContent = '✓';
+    visual.append(label, check);
+  } else {
+    const bubble = document.createElement('div');
+    bubble.className = 'logo-bubble';
+    bubble.innerHTML = '저당<br><b>퐁!</b>';
+    visual.append(bubble);
+  }
+
+  return visual;
+};
+
+const createStoryCard = (post, index) => {
+  const card = document.createElement('article');
+  card.className = 'story-card reveal';
+
+  const link = document.createElement('a');
+  link.href = `story/post.html?id=${encodeURIComponent(post.id || '')}`;
+  link.setAttribute('aria-label', `${post.title || '이야기'} 읽기`);
+
+  const time = document.createElement('time');
+  time.dateTime = String(post.date || '');
+  time.textContent = formatStoryDate(post.date);
+
+  const title = document.createElement('h3');
+  title.textContent = String(post.title || '(제목 없음)');
+
+  const summary = document.createElement('p');
+  summary.textContent = String(post.summary || '저당퐁의 새로운 이야기를 만나보세요.');
+
+  link.append(createStoryVisual(index), time, title, summary);
+  card.append(link);
+  return card;
+};
+
+const renderStories = async () => {
+  const grid = document.querySelector('[data-story-grid]');
+  if (!grid) return;
+
+  try {
+    const response = await fetch('story/posts.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+    const posts = await response.json();
+    if (!Array.isArray(posts)) throw new Error('posts.json은 배열이어야 합니다.');
+
+    const latestPosts = posts
+      .slice()
+      .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')))
+      .slice(0, 3);
+
+    grid.replaceChildren();
+    if (!latestPosts.length) {
+      const empty = document.createElement('p');
+      empty.className = 'story-status';
+      empty.textContent = '등록된 이야기가 아직 없어요.';
+      grid.append(empty);
+      return;
+    }
+
+    latestPosts.forEach((post, index) => grid.append(createStoryCard(post, index)));
+    observeReveal(grid);
+  } catch (error) {
+    console.error('블로그 글을 불러오지 못했습니다.', error);
+    const status = document.createElement('p');
+    status.className = 'story-status';
+    status.textContent = location.protocol === 'file:'
+      ? '블로그 글은 로컬 서버에서 확인할 수 있어요. README의 실행 방법을 따라주세요.'
+      : '이야기를 불러오지 못했어요. 잠시 후 다시 확인해주세요.';
+    grid.replaceChildren(status);
+  }
+};
+
+renderStories();
