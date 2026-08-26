@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>이야기</title>
-<meta name="description" content="">
+<title>이야기 | 저당퐁 블로그</title>
+<meta name="description" content="저당 간식, 제품과 브랜드에 관한 저당퐁의 이야기를 읽어보세요.">
+<link id="canonical" rel="canonical" href="https://irumhahn.github.io/jeodangpong/story/post.html">
+<script id="post-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","name":"저당퐁 이야기"}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -150,20 +152,63 @@ nav.pn .next{text-align:right}
   }
 
   function setMeta(post){
-    document.title = String(post.title || '이야기');
+    document.title = String(post.title || '이야기') + ' | 저당퐁 블로그';
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', String(post.summary || '').slice(0, 160));
-    var ld = document.createElement('script');
-    ld.type = 'application/ld+json';
-    ld.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Article',
+
+    var postUrl = 'https://irumhahn.github.io/jeodangpong/story/post.html?id=' + encodeURIComponent(post.id || '');
+    document.getElementById('canonical').setAttribute('href', postUrl);
+
+    var graph = [{
+      '@type': 'BlogPosting',
       headline: String(post.title || ''),
       datePublished: String(post.date || ''),
+      dateModified: String(post.date || ''),
       description: String(post.summary || ''),
-      keywords: Array.isArray(post.tags) ? post.tags.map(String).join(', ') : ''
+      keywords: Array.isArray(post.tags) ? post.tags.map(String).join(', ') : '',
+      inLanguage: 'ko-KR',
+      mainEntityOfPage: postUrl,
+      author: {
+        '@type': 'Organization',
+        name: '저당퐁'
+      },
+      publisher: {
+        '@type': 'Organization',
+        '@id': 'https://irumhahn.github.io/jeodangpong/#organization',
+        name: '저당퐁'
+      }
+    }];
+
+    var faqs = extractFaqs(post.body);
+    if (faqs.length){
+      graph.push({
+        '@type': 'FAQPage',
+        mainEntity: faqs.map(function(faq){
+          return {
+            '@type': 'Question',
+            name: faq.question,
+            acceptedAnswer: {
+              '@type': 'Answer',
+              text: faq.answer
+            }
+          };
+        })
+      });
+    }
+
+    document.getElementById('post-schema').textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@graph': graph
     });
-    document.head.appendChild(ld);
+  }
+
+  function extractFaqs(src){
+    var faqSection = String(src || '').split(/\n## 관련 FAQ\s*\n/i)[1];
+    if (!faqSection) return [];
+    return faqSection.split('\n').map(function(line){
+      var match = line.trim().match(/^-[\s]+Q\.\s*(.+?)\s+A\.\s*(.+)$/);
+      return match ? {question: match[1].trim(), answer: match[2].trim()} : null;
+    }).filter(Boolean);
   }
 
   function render(posts){

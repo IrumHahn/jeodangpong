@@ -36,6 +36,38 @@ document.querySelector('.to-top')?.addEventListener('click', () => {
 
 const formatPrice = (price) => `${new Intl.NumberFormat('ko-KR').format(price)}원`;
 
+const updateProductSchema = (products) => {
+  const schemaElement = document.querySelector('#product-schema');
+  if (!schemaElement) return;
+
+  const productItems = products.map((product, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    item: {
+      '@type': 'Product',
+      name: String(product.name || ''),
+      image: String(product.image || ''),
+      url: String(product.url || ''),
+      category: '저당과자',
+      offers: {
+        '@type': 'Offer',
+        priceCurrency: 'KRW',
+        price: Number(product.price),
+        url: String(product.url || '')
+      }
+    }
+  }));
+
+  schemaElement.textContent = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: '저당퐁 제품',
+    url: 'https://irumhahn.github.io/jeodangpong/products.html',
+    numberOfItems: productItems.length,
+    itemListElement: productItems
+  });
+};
+
 const createProductCard = (product, index) => {
   const card = document.createElement('article');
   const colorClass = ['product-orange', 'product-yellow', 'product-mint'][index % 3];
@@ -97,6 +129,7 @@ const renderProducts = async () => {
 
     const products = await response.json();
     if (!Array.isArray(products)) throw new Error('products.json은 배열이어야 합니다.');
+    updateProductSchema(products);
 
     const featuredProduct = document.querySelector('[data-featured-product]');
     if (featuredProduct && products[0]) {

@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>이야기</title>
-<meta name="description" content="브랜드의 이야기를 기록합니다.">
+<title>저당 간식과 브랜드 이야기 | 저당퐁 블로그</title>
+<meta name="description" content="혈당 관리, 저당 간식 선택법, 연근칩 제품 정보와 저당퐁의 브랜드 이야기를 사실에 근거해 전합니다.">
+<link rel="canonical" href="https://irumhahn.github.io/jeodangpong/story/">
+<script id="blog-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"저당퐁 블로그"}</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +98,27 @@ header.site .admin-link:hover{color:var(--accent);border-bottom-color:var(--acce
     }
     posts = posts.slice().sort(function(a,b){
       return String(b.date||'').localeCompare(String(a.date||''));
+    });
+    document.getElementById('blog-schema').textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Blog',
+      name: '저당퐁 블로그',
+      url: 'https://irumhahn.github.io/jeodangpong/story/',
+      inLanguage: 'ko-KR',
+      publisher: {
+        '@type': 'Organization',
+        '@id': 'https://irumhahn.github.io/jeodangpong/#organization',
+        name: '저당퐁'
+      },
+      blogPost: posts.map(function(p){
+        return {
+          '@type': 'BlogPosting',
+          headline: String(p.title || ''),
+          description: String(p.summary || ''),
+          datePublished: String(p.date || ''),
+          url: 'https://irumhahn.github.io/jeodangpong/story/post.html?id=' + encodeURIComponent(p.id || '')
+        };
+      })
     });
     posts.forEach(function(p){
       var li = el('li','card');

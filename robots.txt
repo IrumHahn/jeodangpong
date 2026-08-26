@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Disallow: /jeodangpong/story/admin.html
+
+Sitemap: https://irumhahn.github.io/jeodangpong/sitemap.xml

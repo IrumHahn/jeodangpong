@@ -1,0 +1,27 @@
+# 저당퐁
+
+> 달콤함은 통통하게, 당은 가볍게. 저당퐁은 저당과자를 소개하고 제품과 브랜드 이야기를 나누는 한국어 브랜드 사이트입니다.
+
+저당퐁은 맛있는 간식을 가볍게 즐기고 싶은 사람을 위한 저당과자 브랜드입니다. 사이트에서는 제품명, 가격, 이미지와 구매 링크를 제공하며, 확인되지 않은 영양정보나 건강 효과를 임의로 단정하지 않습니다.
+
+## 주요 페이지
+
+- [홈](https://irumhahn.github.io/jeodangpong/): 저당퐁 브랜드 소개와 대표 제품
+- [제품](https://irumhahn.github.io/jeodangpong/products.html): 제품 이미지, 제품명, 가격과 외부 구매 링크
+- [이야기](https://irumhahn.github.io/jeodangpong/story/): 혈당 관리, 저당 간식 선택, 제품과 브랜드에 관한 글
+- [연락하기](https://irumhahn.github.io/jeodangpong/contact.html): 이메일, Threads, 스마트스토어 연락처
+
+## 현재 소개하는 제품
+
+- 풍심당 더 맛있는 연근칩 25g: 2026-08-25 수집 기준 가격 4,200원. 실제 가격과 상세 정보는 [네이버 스마트스토어 상품 페이지](https://smartstore.naver.com/poongsimdang/products/6599318185)에서 확인해야 합니다.
+
+## 원본 데이터
+
+- [제품 데이터](https://irumhahn.github.io/jeodangpong/products.json): 사이트에 표시되는 제품명, 가격, 이미지, 구매 링크
+- [블로그 글 데이터](https://irumhahn.github.io/jeodangpong/story/posts.json): 이야기 목록과 본문
+
+## 연락처
+
+- 이메일: cole@rebrandb.com
+- Threads: [@irum_han](https://www.threads.net/@irum_han)
+- 스토어: [www.smartstore.com/irumhahn](https://www.smartstore.com/irumhahn)
