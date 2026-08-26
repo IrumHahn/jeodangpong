@@ -18,6 +18,7 @@ python3 -m http.server 4173
 - `products.html` — 전체 제품 목록 페이지
 - `contact.html` — 이메일, Threads, 스토어 연락 페이지
 - `products.json` — 홈과 제품 페이지에서 함께 사용하는 제품 데이터
+- `story/story.css` — 블로그 목록·상세 페이지의 저당퐁 공통 디자인
 - `sitemap.xml` — 검색엔진에 공개할 페이지와 블로그 글 URL 목록
 - `robots.txt` — 크롤러 접근 규칙과 sitemap 위치
 - `llms.txt` — AI 시스템을 위한 브랜드·제품·페이지 안내

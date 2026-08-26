@@ -1,266 +1,170 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>이야기 | 저당퐁 블로그</title>
-<meta name="description" content="저당 간식, 제품과 브랜드에 관한 저당퐁의 이야기를 읽어보세요.">
-<link id="canonical" rel="canonical" href="https://irumhahn.github.io/jeodangpong/story/post.html">
-<script id="post-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","name":"저당퐁 이야기"}</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#fffaf0;
-  --ink:#191919;
-  --accent:#ff5c35;
-  --muted:#6f6b62;
-  --serif:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;
-  --sans:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;
-  -webkit-font-smoothing:antialiased;min-height:100vh}
-.wrap{max-width:640px;margin:0 auto;padding:0 24px 96px}
-.top{padding:44px 0 0}
-.back{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:.03em}
-.back:hover{color:var(--accent)}
-article{padding-top:56px}
-.post-head time{font-size:13px;color:var(--muted);letter-spacing:.06em}
-.post-head h1{font-family:var(--serif);font-weight:600;
-  font-size:clamp(26px,5.6vw,36px);line-height:1.4;letter-spacing:-.01em;
-  margin:12px 0 18px}
-.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
-.tag{font-size:11.5px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
-  border-radius:999px;padding:2px 10px;letter-spacing:.03em}
-.rule{border:none;border-top:1px solid rgba(0,0,0,.1);margin:36px 0 40px;width:48px}
-.body{font-size:16.5px;line-height:1.95}
-.body p{margin-bottom:1.6em}
-.body a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:4px}
-.body a:hover{text-decoration-thickness:2px}
-.body h2{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.5;
-  margin:2.2em 0 .9em;letter-spacing:-.005em}
-.body ul{margin:0 0 1.6em 1.2em}
-.body li{margin-bottom:.45em}
-.body li::marker{color:var(--accent)}
-nav.pn{margin-top:72px;border-top:1px solid rgba(0,0,0,.08);
-  display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:8px}
-nav.pn a{display:block;text-decoration:none;color:inherit;padding:22px 4px;
-  border-radius:8px;transition:background .18s ease;min-width:0}
-nav.pn a:hover{background:rgba(0,0,0,.03)}
-nav.pn .dir{font-size:11.5px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px}
-nav.pn .pn-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.5;
-  overflow:hidden;text-overflow:ellipsis;display:-webkit-box;
-  -webkit-line-clamp:2;-webkit-box-orient:vertical}
-nav.pn a:hover .pn-title{color:var(--accent)}
-nav.pn .next{text-align:right}
-.notfound{padding:120px 0;text-align:center}
-.notfound h1{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:14px}
-.notfound p{color:var(--muted);font-size:15px;margin-bottom:28px}
-.notfound a{color:var(--accent);text-decoration:none;font-size:14px;
-  border-bottom:1px solid currentColor;padding-bottom:2px}
-@media (max-width:480px){
-  article{padding-top:44px}
-  nav.pn{grid-template-columns:1fr}
-  nav.pn .next{text-align:left}
-}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <div class="top"><a class="back" href="index.html">&larr; 목록으로</a></div>
-  <main id="main"></main>
-</div>
-<script>
-(function(){
-  var main = document.getElementById('main');
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>이야기 | 저당퐁 블로그</title>
+    <meta name="description" content="저당 간식, 제품과 브랜드에 관한 저당퐁의 이야기를 읽어보세요.">
+    <meta name="theme-color" content="#ff5c35">
+    <link id="canonical" rel="canonical" href="https://irumhahn.github.io/jeodangpong/story/post.html">
+    <script id="post-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","name":"저당퐁 이야기"}</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="story.css">
+    <script src="../script.js" defer></script>
+  </head>
+  <body class="story-post-page">
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="저당퐁 홈">저당<span>퐁!</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+      </button>
+      <nav id="site-menu" aria-label="주요 메뉴">
+        <a href="../index.html#about">내 소개</a>
+        <a href="../products.html">제품</a>
+        <a class="is-current" href="./" aria-current="page">이야기</a>
+        <a class="nav-contact" href="../contact.html">연락하기</a>
+      </nav>
+    </header>
 
-  function el(tag, cls, text){
-    var n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  }
+    <main class="post-main">
+      <div class="post-toolbar">
+        <a class="post-back" href="index.html"><span aria-hidden="true">←</span> 모든 이야기</a>
+        <span>JEODANGPONG JOURNAL</span>
+      </div>
+      <div id="main" aria-live="polite"></div>
+    </main>
 
-  function fmtDate(s){
-    var d = new Date(s + 'T00:00:00');
-    if (isNaN(d)) return s || '';
-    return d.getFullYear() + '. ' + (d.getMonth()+1) + '. ' + d.getDate() + '.';
-  }
+    <footer>
+      <a class="logo footer-logo" href="../index.html">저당<span>퐁!</span></a>
+      <div><p>저당과자 브랜드 저당퐁</p><p>© 2026 JEODANGPONG. ALL RIGHTS RESERVED.</p></div>
+      <div class="footer-links">
+        <a href="mailto:cole@rebrandb.com" target="_blank" rel="noopener noreferrer">cole@rebrandb.com</a>
+        <a href="https://www.threads.net/@irum_han" target="_blank" rel="noopener noreferrer">@irum_han</a>
+        <a href="index.html">모든 이야기</a>
+      </div>
+      <button class="to-top" type="button" aria-label="맨 위로 이동">↑</button>
+    </footer>
 
-  // 초경량 마크다운: 빈 줄=문단, "## "=소제목, "- "=리스트, [텍스트](URL)=링크.
-  function appendInline(parent, src){
-    var text = String(src || '');
-    var pattern = /\[([^\]]+)\]\(([^)\s]+)\)/g;
-    var cursor = 0;
-    var match;
-    while ((match = pattern.exec(text)) !== null){
-      parent.appendChild(document.createTextNode(text.slice(cursor, match.index)));
-      var href = match[2];
-      if (/^(https?:\/\/|\.\.\/|\.\/|\/)/.test(href)){
-        var link = el('a', null, match[1]);
-        link.href = href;
-        if (/^https?:\/\//.test(href)){
-          link.target = '_blank';
-          link.rel = 'noopener noreferrer';
+    <script>
+      (function(){
+        var main = document.getElementById('main');
+        function el(tag, cls, text){ var node = document.createElement(tag); if (cls) node.className = cls; if (text != null) node.textContent = text; return node; }
+        function fmtDate(value){ var date = new Date(value + 'T00:00:00'); if (isNaN(date)) return value || ''; return date.getFullYear() + '. ' + String(date.getMonth() + 1).padStart(2, '0') + '. ' + String(date.getDate()).padStart(2, '0'); }
+
+        function appendInline(parent, source){
+          var text = String(source || '');
+          var pattern = /\[([^\]]+)\]\(([^)\s]+)\)/g;
+          var cursor = 0;
+          var match;
+          while ((match = pattern.exec(text)) !== null){
+            parent.appendChild(document.createTextNode(text.slice(cursor, match.index)));
+            var href = match[2];
+            if (/^(https?:\/\/|\.\.\/|\.\/|\/)/.test(href)){
+              var link = el('a', null, match[1]);
+              link.href = href;
+              if (/^https?:\/\//.test(href)){ link.target = '_blank'; link.rel = 'noopener noreferrer'; }
+              parent.appendChild(link);
+            } else { parent.appendChild(document.createTextNode(match[0])); }
+            cursor = pattern.lastIndex;
+          }
+          parent.appendChild(document.createTextNode(text.slice(cursor)));
         }
-        parent.appendChild(link);
-      } else {
-        parent.appendChild(document.createTextNode(match[0]));
-      }
-      cursor = pattern.lastIndex;
-    }
-    parent.appendChild(document.createTextNode(text.slice(cursor)));
-  }
 
-  function renderBody(src){
-    var box = el('div','body');
-    var blocks = String(src || '').replace(/\r\n/g,'\n').split(/\n\s*\n/);
-    blocks.forEach(function(block){
-      block = block.trim();
-      if (!block) return;
-      var lines = block.split('\n');
-      if (lines.every(function(l){ return /^- /.test(l.trim()); })){
-        var ul = el('ul');
-        lines.forEach(function(l){
-          var li = el('li');
-          appendInline(li, l.trim().slice(2));
-          ul.appendChild(li);
-        });
-        box.appendChild(ul);
-      } else if (/^## /.test(block)){
-        box.appendChild(el('h2', null, block.slice(3).trim()));
-      } else {
-        var p = el('p');
-        appendInline(p, block);
-        box.appendChild(p);
-      }
-    });
-    return box;
-  }
+        function renderBody(source){
+          var box = el('div', 'post-body');
+          String(source || '').replace(/\r\n/g, '\n').split(/\n\s*\n/).forEach(function(block){
+            block = block.trim();
+            if (!block) return;
+            var lines = block.split('\n');
+            if (lines.every(function(line){ return /^- /.test(line.trim()); })){
+              var list = el('ul');
+              lines.forEach(function(line){ var item = el('li'); appendInline(item, line.trim().slice(2)); list.appendChild(item); });
+              box.appendChild(list);
+            } else if (/^## /.test(block)) { box.appendChild(el('h2', null, block.slice(3).trim())); }
+            else { var paragraph = el('p'); appendInline(paragraph, block); box.appendChild(paragraph); }
+          });
+          return box;
+        }
 
-  function notFound(){
-    var d = el('div','notfound');
-    d.appendChild(el('h1', null, '글을 찾을 수 없습니다'));
-    d.appendChild(el('p', null, '주소가 잘못되었거나 삭제된 글일 수 있어요.'));
-    var a = el('a', null, '글 목록으로 돌아가기');
-    a.href = 'index.html';
-    d.appendChild(a);
-    main.appendChild(d);
-  }
+        function notFound(){
+          var box = el('div', 'post-not-found');
+          box.appendChild(el('span', null, '404'));
+          box.appendChild(el('h1', null, '글을 찾을 수 없습니다'));
+          box.appendChild(el('p', null, '주소가 잘못되었거나 삭제된 글일 수 있어요.'));
+          var link = el('a', 'button button-dark', '이야기 목록으로'); link.href = 'index.html'; box.appendChild(link);
+          main.appendChild(box);
+        }
 
-  function setMeta(post){
-    document.title = String(post.title || '이야기') + ' | 저당퐁 블로그';
-    var md = document.querySelector('meta[name="description"]');
-    if (md) md.setAttribute('content', String(post.summary || '').slice(0, 160));
+        function extractFaqs(source){
+          var section = String(source || '').split(/\n## 관련 FAQ\s*\n/i)[1];
+          if (!section) return [];
+          return section.split('\n').map(function(line){
+            var match = line.trim().match(/^-[\s]+Q\.\s*(.+?)\s+A\.\s*(.+)$/);
+            return match ? {question: match[1].trim(), answer: match[2].trim()} : null;
+          }).filter(Boolean);
+        }
 
-    var postUrl = 'https://irumhahn.github.io/jeodangpong/story/post.html?id=' + encodeURIComponent(post.id || '');
-    document.getElementById('canonical').setAttribute('href', postUrl);
+        function setMeta(post){
+          document.title = String(post.title || '이야기') + ' | 저당퐁 블로그';
+          var description = document.querySelector('meta[name="description"]');
+          if (description) description.setAttribute('content', String(post.summary || '').slice(0, 160));
+          var postUrl = 'https://irumhahn.github.io/jeodangpong/story/post.html?id=' + encodeURIComponent(post.id || '');
+          document.getElementById('canonical').setAttribute('href', postUrl);
+          var graph = [{
+            '@type': 'BlogPosting', headline: String(post.title || ''), datePublished: String(post.date || ''), dateModified: String(post.date || ''), description: String(post.summary || ''),
+            keywords: Array.isArray(post.tags) ? post.tags.map(String).join(', ') : '', inLanguage: 'ko-KR', mainEntityOfPage: postUrl,
+            author: {'@type': 'Organization', name: '저당퐁'}, publisher: {'@type': 'Organization', '@id': 'https://irumhahn.github.io/jeodangpong/#organization', name: '저당퐁'}
+          }];
+          var faqs = extractFaqs(post.body);
+          if (faqs.length){ graph.push({'@type': 'FAQPage', mainEntity: faqs.map(function(faq){ return {'@type': 'Question', name: faq.question, acceptedAnswer: {'@type': 'Answer', text: faq.answer}}; })}); }
+          document.getElementById('post-schema').textContent = JSON.stringify({'@context': 'https://schema.org', '@graph': graph});
+        }
 
-    var graph = [{
-      '@type': 'BlogPosting',
-      headline: String(post.title || ''),
-      datePublished: String(post.date || ''),
-      dateModified: String(post.date || ''),
-      description: String(post.summary || ''),
-      keywords: Array.isArray(post.tags) ? post.tags.map(String).join(', ') : '',
-      inLanguage: 'ko-KR',
-      mainEntityOfPage: postUrl,
-      author: {
-        '@type': 'Organization',
-        name: '저당퐁'
-      },
-      publisher: {
-        '@type': 'Organization',
-        '@id': 'https://irumhahn.github.io/jeodangpong/#organization',
-        name: '저당퐁'
-      }
-    }];
+        function render(posts){
+          var id = new URLSearchParams(location.search).get('id');
+          posts = (Array.isArray(posts) ? posts : []).slice().sort(function(a,b){ return String(b.date || '').localeCompare(String(a.date || '')); });
+          var index = posts.findIndex(function(post){ return String(post.id) === id; });
+          if (index < 0){ notFound(); return; }
+          var post = posts[index];
+          setMeta(post);
+          var article = el('article', 'story-article');
+          var head = el('header', 'post-head');
+          var meta = el('div', 'post-meta');
+          var time = el('time', null, fmtDate(post.date)); time.setAttribute('datetime', String(post.date || ''));
+          meta.appendChild(time); meta.appendChild(el('span', null, '저당퐁 이야기'));
+          head.appendChild(meta); head.appendChild(el('h1', null, String(post.title || '(제목 없음)')));
+          if (post.summary) head.appendChild(el('p', 'post-summary', String(post.summary)));
+          if (Array.isArray(post.tags) && post.tags.length){
+            var tags = el('div', 'post-tags');
+            post.tags.forEach(function(tag){ tags.appendChild(el('span', 'post-tag', String(tag))); });
+            head.appendChild(tags);
+          }
+          article.appendChild(head); article.appendChild(renderBody(post.body));
 
-    var faqs = extractFaqs(post.body);
-    if (faqs.length){
-      graph.push({
-        '@type': 'FAQPage',
-        mainEntity: faqs.map(function(faq){
-          return {
-            '@type': 'Question',
-            name: faq.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: faq.answer
+          var previous = posts[index + 1];
+          var next = posts[index - 1];
+          if (previous || next){
+            var navigation = el('div', 'post-navigation');
+            navigation.setAttribute('role', 'navigation'); navigation.setAttribute('aria-label', '이전 글과 다음 글');
+            function addLink(target, cls, label){
+              if (!target){ navigation.appendChild(el('span', 'post-nav-empty')); return; }
+              var link = el('a', cls); link.href = 'post.html?id=' + encodeURIComponent(target.id || '');
+              link.appendChild(el('span', 'post-nav-label', label)); link.appendChild(el('strong', null, String(target.title || ''))); navigation.appendChild(link);
             }
-          };
-        })
-      });
-    }
+            addLink(previous, 'post-nav-prev', '← 이전 글'); addLink(next, 'post-nav-next', '다음 글 →'); article.appendChild(navigation);
+          }
+          main.appendChild(article);
+        }
 
-    document.getElementById('post-schema').textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@graph': graph
-    });
-  }
-
-  function extractFaqs(src){
-    var faqSection = String(src || '').split(/\n## 관련 FAQ\s*\n/i)[1];
-    if (!faqSection) return [];
-    return faqSection.split('\n').map(function(line){
-      var match = line.trim().match(/^-[\s]+Q\.\s*(.+?)\s+A\.\s*(.+)$/);
-      return match ? {question: match[1].trim(), answer: match[2].trim()} : null;
-    }).filter(Boolean);
-  }
-
-  function render(posts){
-    var id = new URLSearchParams(location.search).get('id');
-    posts = (Array.isArray(posts) ? posts : []).slice().sort(function(a,b){
-      return String(b.date||'').localeCompare(String(a.date||''));
-    });
-    var idx = -1;
-    posts.forEach(function(p,i){ if (String(p.id) === id) idx = i; });
-    if (idx < 0){ notFound(); return; }
-    var post = posts[idx];
-    setMeta(post);
-
-    var art = el('article');
-    var head = el('header','post-head');
-    var t = el('time', null, fmtDate(post.date));
-    t.setAttribute('datetime', String(post.date||''));
-    head.appendChild(t);
-    head.appendChild(el('h1', null, String(post.title || '(제목 없음)')));
-    if (Array.isArray(post.tags) && post.tags.length){
-      var tags = el('div','tags');
-      post.tags.forEach(function(tg){ tags.appendChild(el('span','tag', String(tg))); });
-      head.appendChild(tags);
-    }
-    art.appendChild(head);
-    art.appendChild(el('hr','rule'));
-    art.appendChild(renderBody(post.body));
-
-    var prev = posts[idx+1]; // 더 오래된 글
-    var next = posts[idx-1]; // 더 최신 글
-    if (prev || next){
-      var nav = el('nav','pn');
-      function cell(p, cls, label){
-        if (!p){ nav.appendChild(el('span')); return; }
-        var a = el('a', cls);
-        a.href = 'post.html?id=' + encodeURIComponent(p.id || '');
-        a.appendChild(el('div','dir', label));
-        a.appendChild(el('div','pn-title', String(p.title || '')));
-        nav.appendChild(a);
-      }
-      cell(prev, 'prev', '이전 글');
-      cell(next, 'next', '다음 글');
-      art.appendChild(nav);
-    }
-    main.appendChild(art);
-  }
-
-  fetch('posts.json', {cache:'no-store'})
-    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-    .then(render)
-    .catch(function(){ notFound(); });
-})();
-</script>
-</body>
+        fetch('posts.json', {cache: 'no-store'})
+          .then(function(response){ if (!response.ok) throw new Error(response.status); return response.json(); })
+          .then(render)
+          .catch(notFound);
+      })();
+    </script>
+  </body>
 </html>

@@ -1,151 +1,114 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>저당 간식과 브랜드 이야기 | 저당퐁 블로그</title>
-<meta name="description" content="혈당 관리, 저당 간식 선택법, 연근칩 제품 정보와 저당퐁의 브랜드 이야기를 사실에 근거해 전합니다.">
-<link rel="canonical" href="https://irumhahn.github.io/jeodangpong/story/">
-<script id="blog-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"저당퐁 블로그"}</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg:#fffaf0;
-  --ink:#191919;
-  --accent:#ff5c35;
-  --muted:#6f6b62;
-  --serif:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;
-  --sans:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;
-  -webkit-font-smoothing:antialiased;min-height:100vh}
-.wrap{max-width:680px;margin:0 auto;padding:0 24px 96px}
-header.site{display:flex;justify-content:space-between;align-items:baseline;
-  padding:48px 0 0}
-header.site .admin-link{font-size:12px;color:var(--muted);text-decoration:none;
-  letter-spacing:.04em;border-bottom:1px solid transparent}
-header.site .admin-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
-.hero{padding:72px 0 56px;border-bottom:1px solid rgba(0,0,0,.08)}
-.hero .eyebrow{font-size:12px;letter-spacing:.28em;color:var(--accent);
-  text-transform:uppercase;margin-bottom:16px}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(28px,6vw,40px);
-  letter-spacing:-.01em;line-height:1.3}
-.hero p{margin-top:14px;color:var(--muted);font-size:15px}
-.list{list-style:none;padding-top:8px}
-.card{border-bottom:1px solid rgba(0,0,0,.08)}
-.card a{display:block;text-decoration:none;color:inherit;padding:36px 8px;
-  margin:0 -8px;border-radius:10px;transition:background .18s ease,transform .18s ease}
-.card a:hover{background:rgba(0,0,0,.028);transform:translateX(4px)}
-.card time{font-size:12.5px;color:var(--muted);letter-spacing:.06em}
-.card h2{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.45;
-  margin:8px 0 10px;transition:color .18s ease}
-.card a:hover h2{color:var(--accent)}
-.card .summary{font-size:14.5px;color:var(--muted);line-height:1.75;
-  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.tags{margin-top:14px;display:flex;gap:6px;flex-wrap:wrap}
-.tag{font-size:11.5px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
-  border-radius:999px;padding:2px 10px;letter-spacing:.03em}
-.empty,.error{padding:96px 0;text-align:center;color:var(--muted);font-size:15px}
-.empty strong{display:block;font-family:var(--serif);font-size:19px;color:var(--ink);
-  margin-bottom:10px;font-weight:600}
-@media (max-width:480px){
-  .hero{padding:56px 0 40px}
-  .card a{padding:28px 4px;margin:0 -4px}
-}
-</style>
-</head>
-<body>
-<div class="wrap">
-  <header class="site">
-    <span aria-hidden="true"></span>
-    <a class="admin-link" href="admin.html">관리</a>
-  </header>
-  <section class="hero">
-    <p class="eyebrow">Story</p>
-    <h1>브랜드 이야기</h1>
-    <p>만드는 사람들의 기록을 천천히 쌓아갑니다.</p>
-  </section>
-  <ul class="list" id="list"></ul>
-</div>
-<script>
-(function(){
-  var list = document.getElementById('list');
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>저당 간식과 브랜드 이야기 | 저당퐁 블로그</title>
+    <meta name="description" content="혈당 관리, 저당 간식 선택법, 연근칩 제품 정보와 저당퐁의 브랜드 이야기를 사실에 근거해 전합니다.">
+    <meta name="theme-color" content="#ff5c35">
+    <link rel="canonical" href="https://irumhahn.github.io/jeodangpong/story/">
+    <script id="blog-schema" type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"저당퐁 블로그"}</script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gasoek+One&family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="story.css">
+    <script src="../script.js" defer></script>
+  </head>
+  <body class="story-page">
+    <header class="site-header">
+      <a class="logo" href="../index.html" aria-label="저당퐁 홈">저당<span>퐁!</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span></span><span></span><span></span><span class="sr-only">메뉴 열기</span>
+      </button>
+      <nav id="site-menu" aria-label="주요 메뉴">
+        <a href="../index.html#about">내 소개</a>
+        <a href="../products.html">제품</a>
+        <a class="is-current" href="./" aria-current="page">이야기</a>
+        <a class="nav-contact" href="../contact.html">연락하기</a>
+      </nav>
+    </header>
 
-  function el(tag, cls, text){
-    var n = document.createElement(tag);
-    if (cls) n.className = cls;
-    if (text != null) n.textContent = text;
-    return n;
-  }
+    <main>
+      <section class="story-page-hero">
+        <div class="story-hero-copy reveal">
+          <div class="section-label"><span>03</span> STORIES</div>
+          <h1>저당퐁의<br><em>바삭한 이야기</em></h1>
+          <p>간식을 고르는 기준부터 제품 뒤의 고민까지,<br>확인한 사실과 솔직한 경험을 차곡차곡 기록합니다.</p>
+          <a class="button button-dark" href="#story-list">최신 이야기 읽기 <span aria-hidden="true">↓</span></a>
+        </div>
+        <span class="story-page-word" aria-hidden="true">STORY</span>
+        <span class="story-pop story-pop-one" aria-hidden="true">?</span>
+        <span class="story-pop story-pop-two" aria-hidden="true">퐁!</span>
+      </section>
 
-  function fmtDate(s){
-    var d = new Date(s + 'T00:00:00');
-    if (isNaN(d)) return s || '';
-    return d.getFullYear() + '. ' + (d.getMonth()+1) + '. ' + d.getDate() + '.';
-  }
+      <section class="story-archive section" id="story-list" aria-labelledby="story-list-title">
+        <div class="story-archive-head reveal">
+          <div class="section-label"><span>01</span> JOURNAL</div>
+          <div><p>NEW &amp; HONEST</p><h2 id="story-list-title">모든 이야기</h2></div>
+        </div>
+        <ul class="story-list" id="list" aria-live="polite">
+          <li class="story-list-status">이야기를 불러오는 중이에요…</li>
+        </ul>
+      </section>
+    </main>
 
-  function render(posts){
-    if (!Array.isArray(posts) || posts.length === 0){
-      var empty = el('div','empty');
-      empty.appendChild(el('strong', null, '아직 올라온 글이 없습니다'));
-      empty.appendChild(document.createTextNode('첫 번째 이야기를 준비하고 있어요. 곧 만나요.'));
-      list.replaceWith(empty);
-      return;
-    }
-    posts = posts.slice().sort(function(a,b){
-      return String(b.date||'').localeCompare(String(a.date||''));
-    });
-    document.getElementById('blog-schema').textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'Blog',
-      name: '저당퐁 블로그',
-      url: 'https://irumhahn.github.io/jeodangpong/story/',
-      inLanguage: 'ko-KR',
-      publisher: {
-        '@type': 'Organization',
-        '@id': 'https://irumhahn.github.io/jeodangpong/#organization',
-        name: '저당퐁'
-      },
-      blogPost: posts.map(function(p){
-        return {
-          '@type': 'BlogPosting',
-          headline: String(p.title || ''),
-          description: String(p.summary || ''),
-          datePublished: String(p.date || ''),
-          url: 'https://irumhahn.github.io/jeodangpong/story/post.html?id=' + encodeURIComponent(p.id || '')
-        };
-      })
-    });
-    posts.forEach(function(p){
-      var li = el('li','card');
-      var a = el('a');
-      a.href = 'post.html?id=' + encodeURIComponent(p.id || '');
-      var t = el('time', null, fmtDate(p.date));
-      t.setAttribute('datetime', String(p.date||''));
-      a.appendChild(t);
-      a.appendChild(el('h2', null, String(p.title || '(제목 없음)')));
-      if (p.summary) a.appendChild(el('p','summary', String(p.summary)));
-      if (Array.isArray(p.tags) && p.tags.length){
-        var tags = el('div','tags');
-        p.tags.forEach(function(tg){ tags.appendChild(el('span','tag', String(tg))); });
-        a.appendChild(tags);
-      }
-      li.appendChild(a);
-      list.appendChild(li);
-    });
-  }
+    <footer>
+      <a class="logo footer-logo" href="../index.html">저당<span>퐁!</span></a>
+      <div><p>저당과자 브랜드 저당퐁</p><p>© 2026 JEODANGPONG. ALL RIGHTS RESERVED.</p></div>
+      <div class="footer-links">
+        <a href="mailto:cole@rebrandb.com" target="_blank" rel="noopener noreferrer">cole@rebrandb.com</a>
+        <a href="https://www.threads.net/@irum_han" target="_blank" rel="noopener noreferrer">@irum_han</a>
+        <a href="admin.html">글 관리</a>
+      </div>
+      <button class="to-top" type="button" aria-label="맨 위로 이동">↑</button>
+    </footer>
 
-  fetch('posts.json', {cache:'no-store'})
-    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
-    .then(render)
-    .catch(function(){
-      list.replaceWith(el('div','error','글 목록을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.'));
-    });
-})();
-</script>
-</body>
+    <script>
+      (function(){
+        var list = document.getElementById('list');
+        function el(tag, cls, text){ var node = document.createElement(tag); if (cls) node.className = cls; if (text != null) node.textContent = text; return node; }
+        function fmtDate(value){ var date = new Date(value + 'T00:00:00'); if (isNaN(date)) return value || ''; return date.getFullYear() + '. ' + String(date.getMonth() + 1).padStart(2, '0') + '. ' + String(date.getDate()).padStart(2, '0'); }
+
+        function render(posts){
+          if (!Array.isArray(posts) || posts.length === 0){ list.replaceChildren(el('li', 'story-list-status', '첫 번째 이야기를 준비하고 있어요. 곧 만나요.')); return; }
+          posts = posts.slice().sort(function(a,b){ return String(b.date || '').localeCompare(String(a.date || '')); });
+          document.getElementById('blog-schema').textContent = JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'Blog', name: '저당퐁 블로그', url: 'https://irumhahn.github.io/jeodangpong/story/', inLanguage: 'ko-KR',
+            publisher: {'@type': 'Organization', '@id': 'https://irumhahn.github.io/jeodangpong/#organization', name: '저당퐁'},
+            blogPost: posts.map(function(post){ return {'@type': 'BlogPosting', headline: String(post.title || ''), description: String(post.summary || ''), datePublished: String(post.date || ''), url: 'https://irumhahn.github.io/jeodangpong/story/post.html?id=' + encodeURIComponent(post.id || '')}; })
+          });
+          list.replaceChildren();
+          posts.forEach(function(post, index){
+            var item = el('li', 'story-list-card');
+            var link = el('a');
+            link.href = 'post.html?id=' + encodeURIComponent(post.id || '');
+            link.setAttribute('aria-label', String(post.title || '이야기') + ' 읽기');
+            var content = el('div', 'story-card-content');
+            var meta = el('div', 'story-card-meta');
+            var time = el('time', null, fmtDate(post.date));
+            time.setAttribute('datetime', String(post.date || ''));
+            meta.appendChild(time);
+            if (Array.isArray(post.tags) && post.tags.length){
+              var tags = el('div', 'story-tags');
+              post.tags.slice(0, 3).forEach(function(tag){ tags.appendChild(el('span', 'story-tag', String(tag))); });
+              meta.appendChild(tags);
+            }
+            content.appendChild(meta);
+            content.appendChild(el('h3', null, String(post.title || '(제목 없음)')));
+            if (post.summary) content.appendChild(el('p', 'story-summary', String(post.summary)));
+            link.append(el('span', 'story-number', String(index + 1).padStart(2, '0')), content, el('span', 'story-arrow', '↗'));
+            item.appendChild(link);
+            list.appendChild(item);
+          });
+        }
+
+        fetch('posts.json', {cache: 'no-store'})
+          .then(function(response){ if (!response.ok) throw new Error(response.status); return response.json(); })
+          .then(render)
+          .catch(function(){ list.replaceChildren(el('li', 'story-list-status', '글 목록을 불러오지 못했습니다. 잠시 후 새로고침해 주세요.')); });
+      })();
+    </script>
+  </body>
 </html>
