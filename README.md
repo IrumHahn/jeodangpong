@@ -15,6 +15,7 @@ python3 -m http.server 4173
 ## 파일 구성
 
 - `index.html` — 페이지 콘텐츠와 구조
+- `about.html`, `about.css` — 인터뷰를 바탕으로 만든 창업자 소개 페이지
 - `products.html` — 전체 제품 목록 페이지
 - `contact.html` — 이메일, Threads, 스토어 연락 페이지
 - `products.json` — 홈과 제품 페이지에서 함께 사용하는 제품 데이터
