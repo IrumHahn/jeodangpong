@@ -2,6 +2,9 @@
 
 팝한 톤의 미니멀한 저당과자 브랜드 홈페이지입니다.
 
+- [전체 제작 가이드북](GUIDEBOOK.md)
+- [Codex 스킬·유의사항 한 장 요약](CODEX_QUICK_REFERENCE.md)
+
 ## 로컬에서 보기
 
 빌드 과정은 없지만, `products.json`을 불러오기 위해 로컬 서버로 실행해야 합니다.
