@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>이야기</title>
+<meta name="description" content="">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%23ff5c35%22/><text y=%22.86em%22 x=%2212%22 font-size=%2272%22>퐁</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fffaf0;
+  --ink:#191919;
+  --accent:#ff5c35;
+  --muted:#6f6b62;
+  --serif:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;
+  --sans:'Noto Sans KR','Apple SD Gothic Neo',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.7;
+  -webkit-font-smoothing:antialiased;min-height:100vh}
+.wrap{max-width:640px;margin:0 auto;padding:0 24px 96px}
+.top{padding:44px 0 0}
+.back{font-size:13px;color:var(--muted);text-decoration:none;letter-spacing:.03em}
+.back:hover{color:var(--accent)}
+article{padding-top:56px}
+.post-head time{font-size:13px;color:var(--muted);letter-spacing:.06em}
+.post-head h1{font-family:var(--serif);font-weight:600;
+  font-size:clamp(26px,5.6vw,36px);line-height:1.4;letter-spacing:-.01em;
+  margin:12px 0 18px}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px}
+.tag{font-size:11.5px;color:var(--accent);border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+  border-radius:999px;padding:2px 10px;letter-spacing:.03em}
+.rule{border:none;border-top:1px solid rgba(0,0,0,.1);margin:36px 0 40px;width:48px}
+.body{font-size:16.5px;line-height:1.95}
+.body p{margin-bottom:1.6em}
+.body h2{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.5;
+  margin:2.2em 0 .9em;letter-spacing:-.005em}
+.body ul{margin:0 0 1.6em 1.2em}
+.body li{margin-bottom:.45em}
+.body li::marker{color:var(--accent)}
+nav.pn{margin-top:72px;border-top:1px solid rgba(0,0,0,.08);
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;padding-top:8px}
+nav.pn a{display:block;text-decoration:none;color:inherit;padding:22px 4px;
+  border-radius:8px;transition:background .18s ease;min-width:0}
+nav.pn a:hover{background:rgba(0,0,0,.03)}
+nav.pn .dir{font-size:11.5px;color:var(--muted);letter-spacing:.1em;margin-bottom:6px}
+nav.pn .pn-title{font-family:var(--serif);font-size:15px;font-weight:600;line-height:1.5;
+  overflow:hidden;text-overflow:ellipsis;display:-webkit-box;
+  -webkit-line-clamp:2;-webkit-box-orient:vertical}
+nav.pn a:hover .pn-title{color:var(--accent)}
+nav.pn .next{text-align:right}
+.notfound{padding:120px 0;text-align:center}
+.notfound h1{font-family:var(--serif);font-size:22px;font-weight:600;margin-bottom:14px}
+.notfound p{color:var(--muted);font-size:15px;margin-bottom:28px}
+.notfound a{color:var(--accent);text-decoration:none;font-size:14px;
+  border-bottom:1px solid currentColor;padding-bottom:2px}
+@media (max-width:480px){
+  article{padding-top:44px}
+  nav.pn{grid-template-columns:1fr}
+  nav.pn .next{text-align:left}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top"><a class="back" href="index.html">&larr; 목록으로</a></div>
+  <main id="main"></main>
+</div>
+<script>
+(function(){
+  var main = document.getElementById('main');
+
+  function el(tag, cls, text){
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function fmtDate(s){
+    var d = new Date(s + 'T00:00:00');
+    if (isNaN(d)) return s || '';
+    return d.getFullYear() + '. ' + (d.getMonth()+1) + '. ' + d.getDate() + '.';
+  }
+
+  // 초경량 마크다운: 빈 줄=문단, "## "=소제목, "- "=리스트. 전부 textContent로 삽입(XSS-safe).
+  function renderBody(src){
+    var box = el('div','body');
+    var blocks = String(src || '').replace(/\r\n/g,'\n').split(/\n\s*\n/);
+    blocks.forEach(function(block){
+      block = block.trim();
+      if (!block) return;
+      var lines = block.split('\n');
+      if (lines.every(function(l){ return /^- /.test(l.trim()); })){
+        var ul = el('ul');
+        lines.forEach(function(l){ ul.appendChild(el('li', null, l.trim().slice(2))); });
+        box.appendChild(ul);
+      } else if (/^## /.test(block)){
+        box.appendChild(el('h2', null, block.slice(3).trim()));
+      } else {
+        box.appendChild(el('p', null, block));
+      }
+    });
+    return box;
+  }
+
+  function notFound(){
+    var d = el('div','notfound');
+    d.appendChild(el('h1', null, '글을 찾을 수 없습니다'));
+    d.appendChild(el('p', null, '주소가 잘못되었거나 삭제된 글일 수 있어요.'));
+    var a = el('a', null, '글 목록으로 돌아가기');
+    a.href = 'index.html';
+    d.appendChild(a);
+    main.appendChild(d);
+  }
+
+  function setMeta(post){
+    document.title = String(post.title || '이야기');
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', String(post.summary || '').slice(0, 160));
+    var ld = document.createElement('script');
+    ld.type = 'application/ld+json';
+    ld.textContent = JSON.stringify({
+      '@context': 'https://schema.org',
+      '@type': 'Article',
+      headline: String(post.title || ''),
+      datePublished: String(post.date || ''),
+      description: String(post.summary || ''),
+      keywords: Array.isArray(post.tags) ? post.tags.map(String).join(', ') : ''
+    });
+    document.head.appendChild(ld);
+  }
+
+  function render(posts){
+    var id = new URLSearchParams(location.search).get('id');
+    posts = (Array.isArray(posts) ? posts : []).slice().sort(function(a,b){
+      return String(b.date||'').localeCompare(String(a.date||''));
+    });
+    var idx = -1;
+    posts.forEach(function(p,i){ if (String(p.id) === id) idx = i; });
+    if (idx < 0){ notFound(); return; }
+    var post = posts[idx];
+    setMeta(post);
+
+    var art = el('article');
+    var head = el('header','post-head');
+    var t = el('time', null, fmtDate(post.date));
+    t.setAttribute('datetime', String(post.date||''));
+    head.appendChild(t);
+    head.appendChild(el('h1', null, String(post.title || '(제목 없음)')));
+    if (Array.isArray(post.tags) && post.tags.length){
+      var tags = el('div','tags');
+      post.tags.forEach(function(tg){ tags.appendChild(el('span','tag', String(tg))); });
+      head.appendChild(tags);
+    }
+    art.appendChild(head);
+    art.appendChild(el('hr','rule'));
+    art.appendChild(renderBody(post.body));
+
+    var prev = posts[idx+1]; // 더 오래된 글
+    var next = posts[idx-1]; // 더 최신 글
+    if (prev || next){
+      var nav = el('nav','pn');
+      function cell(p, cls, label){
+        if (!p){ nav.appendChild(el('span')); return; }
+        var a = el('a', cls);
+        a.href = 'post.html?id=' + encodeURIComponent(p.id || '');
+        a.appendChild(el('div','dir', label));
+        a.appendChild(el('div','pn-title', String(p.title || '')));
+        nav.appendChild(a);
+      }
+      cell(prev, 'prev', '이전 글');
+      cell(next, 'next', '다음 글');
+      art.appendChild(nav);
+    }
+    main.appendChild(art);
+  }
+
+  fetch('posts.json', {cache:'no-store'})
+    .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+    .then(render)
+    .catch(function(){ notFound(); });
+})();
+</script>
+</body>
+</html>
