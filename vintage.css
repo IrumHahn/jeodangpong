@@ -404,6 +404,24 @@ footer p { color: var(--cream); opacity: .58; }
 .about-page-hero h1 { max-width: 9em; font-size: clamp(62px, 7vw, 104px); }
 .about-page-hero p { max-width: 40ch; font-size: 16px; font-weight: 500; }
 
+.founder-photo {
+  position: relative;
+  min-height: 66svh;
+  margin: 0;
+  overflow: hidden;
+  background: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.founder-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
 .founder-photo-placeholder {
   min-height: 66svh;
   padding: 40px;
@@ -536,6 +554,7 @@ footer p { color: var(--cream); opacity: .58; }
   .hero-visual { min-height: 70svh; border: 1px solid var(--ink); }
   .about-grid, .founder-story, .customer-quote { grid-template-columns: 1fr; }
   .founder-story-head { position: static; }
+  .founder-photo { min-height: 68svh; }
   .founder-photo-placeholder { min-height: 68svh; }
   .timeline-list li > div { grid-template-columns: 80px 1fr; }
 }
@@ -608,6 +627,7 @@ footer p { color: var(--cream); opacity: .58; }
   }
 
   .about-page-hero { gap: 66px; padding: max(12vh, 80px) 20px max(15vh, 100px); }
+  .founder-photo { min-height: 70svh; }
   .founder-photo-placeholder { min-height: 70svh; padding: 26px; }
   .photo-figure { height: 330px; }
   .founder-story { gap: 54px; }
