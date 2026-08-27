@@ -40,7 +40,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="vintage.css">
-    <script src="script.js" defer></script>
+    <script src="script.js?v=20260827-curation" defer></script>
   </head>
   <body>
     <header class="site-header">
@@ -106,12 +106,25 @@
         <div class="section-heading reveal">
           <div class="section-label"><span>02</span> PRODUCTS</div>
           <div class="product-heading-copy">
-            <h2>오늘은 어떤 맛으로<br><em>퐁!</em> 할까요?</h2>
-            <a class="all-products-link" href="products.html">전체 제품 보기 <span aria-hidden="true">→</span></a>
+            <p class="curation-intro">오늘의 한 봉지부터<br>차분히 골라보세요.</p>
           </div>
         </div>
-        <div class="product-grid" data-products-grid data-limit="3" aria-live="polite">
-          <p class="product-status">제품을 불러오는 중이에요…</p>
+        <div class="product-curation" aria-live="polite">
+          <div data-curated-featured>
+            <p class="product-status">대표 제품을 불러오는 중이에요…</p>
+          </div>
+          <div class="curated-rest">
+            <div class="curated-rest-head reveal">
+              <p>MORE PICKS</p>
+              <h3>취향에 맞는<br>다음 한 봉지</h3>
+            </div>
+            <div class="product-grid curated-product-grid" data-products-grid data-limit="6" data-offset="1">
+              <p class="product-status">제품을 불러오는 중이에요…</p>
+            </div>
+          </div>
+          <div class="curation-footer reveal">
+            <a class="button button-light" href="https://smartstore.naver.com/poongsimdang" target="_blank" rel="noopener noreferrer">전체 제품 보기 <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
       </section>
 

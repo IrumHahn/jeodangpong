@@ -119,6 +119,62 @@ const createProductCard = (product, index) => {
   return card;
 };
 
+const createCuratedFeaturedProduct = (product) => {
+  const article = document.createElement('article');
+  article.className = 'curated-featured-product reveal';
+
+  const imageLink = document.createElement('a');
+  imageLink.className = 'curated-featured-image';
+  imageLink.href = product.url;
+  imageLink.target = '_blank';
+  imageLink.rel = 'noopener noreferrer';
+  imageLink.setAttribute('aria-label', `${product.name} 구매 페이지 열기`);
+
+  const image = document.createElement('img');
+  image.src = product.image;
+  image.alt = product.name;
+  image.referrerPolicy = 'no-referrer';
+  image.addEventListener('error', () => {
+    imageLink.classList.add('image-unavailable');
+    image.remove();
+    imageLink.setAttribute('data-message', '제품 이미지를 불러오지 못했어요');
+  });
+  imageLink.append(image);
+
+  const copy = document.createElement('div');
+  copy.className = 'curated-featured-copy';
+
+  const kicker = document.createElement('p');
+  kicker.className = 'curated-kicker';
+  kicker.textContent = "CURATOR'S PICK";
+
+  const name = document.createElement('h2');
+  name.textContent = String(product.name)
+    .replace(/^풍심당\s*/, '')
+    .replace(/\s*\([^)]*\).*$/, '')
+    .trim();
+
+  const situation = document.createElement('p');
+  situation.className = 'curated-situation';
+  situation.textContent = '출출한 오후, 가볍고 바삭한 한 봉지가 필요할 때.';
+
+  const price = document.createElement('strong');
+  price.className = 'curated-price';
+  price.textContent = formatPrice(product.price);
+
+  const buyButton = document.createElement('a');
+  buyButton.className = 'button curated-buy-button';
+  buyButton.href = product.url;
+  buyButton.target = '_blank';
+  buyButton.rel = 'noopener noreferrer';
+  buyButton.innerHTML = '대표 제품 구매하기 <span aria-hidden="true">↗</span>';
+  buyButton.setAttribute('aria-label', `${product.name} 구매하기 (새 탭)`);
+
+  copy.append(kicker, name, situation, price, buyButton);
+  article.append(imageLink, copy);
+  return article;
+};
+
 const renderProducts = async () => {
   const grids = [...document.querySelectorAll('[data-products-grid]')];
   if (!grids.length) return;
@@ -130,6 +186,20 @@ const renderProducts = async () => {
     const products = await response.json();
     if (!Array.isArray(products)) throw new Error('products.json은 배열이어야 합니다.');
     updateProductSchema(products);
+
+    const curatedFeatured = document.querySelector('[data-curated-featured]');
+    if (curatedFeatured) {
+      curatedFeatured.replaceChildren();
+      if (products[0]) {
+        curatedFeatured.append(createCuratedFeaturedProduct(products[0]));
+        observeReveal(curatedFeatured);
+      } else {
+        const empty = document.createElement('p');
+        empty.className = 'product-status';
+        empty.textContent = '등록된 제품이 아직 없어요.';
+        curatedFeatured.append(empty);
+      }
+    }
 
     const featuredProduct = document.querySelector('[data-featured-product]');
     if (featuredProduct && products[0]) {
@@ -148,7 +218,11 @@ const renderProducts = async () => {
 
     grids.forEach((grid) => {
       const limit = Number.parseInt(grid.dataset.limit, 10);
-      const visibleProducts = Number.isNaN(limit) ? products : products.slice(0, limit);
+      const parsedOffset = Number.parseInt(grid.dataset.offset, 10);
+      const offset = Number.isNaN(parsedOffset) ? 0 : parsedOffset;
+      const visibleProducts = Number.isNaN(limit)
+        ? products.slice(offset)
+        : products.slice(offset, offset + limit);
       grid.replaceChildren();
 
       if (!visibleProducts.length) {
@@ -164,6 +238,15 @@ const renderProducts = async () => {
     });
   } catch (error) {
     console.error('제품 데이터를 불러오지 못했습니다.', error);
+    const curatedFeatured = document.querySelector('[data-curated-featured]');
+    if (curatedFeatured) {
+      const status = document.createElement('p');
+      status.className = 'product-status product-error';
+      status.textContent = location.protocol === 'file:'
+        ? '제품 목록은 로컬 서버에서 확인할 수 있어요. README의 실행 방법을 따라주세요.'
+        : '대표 제품을 불러오지 못했어요. 잠시 후 다시 확인해주세요.';
+      curatedFeatured.replaceChildren(status);
+    }
     grids.forEach((grid) => {
       const status = grid.querySelector('.product-status') || document.createElement('p');
       status.className = 'product-status product-error';
