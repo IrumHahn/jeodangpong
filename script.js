@@ -31,7 +31,7 @@ const observeReveal = (root = document) => {
 observeReveal();
 
 document.querySelector('.to-top')?.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: 'auto' });
 });
 
 const formatPrice = (price) => `${new Intl.NumberFormat('ko-KR').format(price)}원`;
