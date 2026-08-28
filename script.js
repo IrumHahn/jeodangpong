@@ -36,6 +36,13 @@ document.querySelector('.to-top')?.addEventListener('click', () => {
 
 const formatPrice = (price) => `${new Intl.NumberFormat('ko-KR').format(price)}원`;
 
+const connectCartButton = (button, product) => {
+  button.setAttribute('data-cart-add', '');
+  button.setAttribute('data-name', String(product.name || ''));
+  button.setAttribute('data-price', String(Number(product.price) || 0));
+  button.setAttribute('data-url', String(product.url || ''));
+};
+
 const updateProductSchema = (products) => {
   const schemaElement = document.querySelector('#product-schema');
   if (!schemaElement) return;
@@ -111,8 +118,9 @@ const createProductCard = (product, index) => {
   buyButton.href = product.url;
   buyButton.target = '_blank';
   buyButton.rel = 'noopener noreferrer';
-  buyButton.innerHTML = '구매하기 <span aria-hidden="true">↗</span>';
-  buyButton.setAttribute('aria-label', `${product.name} 구매하기 (새 탭)`);
+  buyButton.innerHTML = '장바구니 담기 <span aria-hidden="true">+</span>';
+  buyButton.setAttribute('aria-label', `${product.name} 장바구니에 담기`);
+  connectCartButton(buyButton, product);
 
   info.append(text, buyButton);
   card.append(imageLink, info);
@@ -167,8 +175,9 @@ const createCuratedFeaturedProduct = (product) => {
   buyButton.href = product.url;
   buyButton.target = '_blank';
   buyButton.rel = 'noopener noreferrer';
-  buyButton.innerHTML = '대표 제품 구매하기 <span aria-hidden="true">↗</span>';
-  buyButton.setAttribute('aria-label', `${product.name} 구매하기 (새 탭)`);
+  buyButton.innerHTML = '대표 제품 담기 <span aria-hidden="true">+</span>';
+  buyButton.setAttribute('aria-label', `${product.name} 장바구니에 담기`);
+  connectCartButton(buyButton, product);
 
   copy.append(kicker, name, situation, price, buyButton);
   article.append(imageLink, copy);
