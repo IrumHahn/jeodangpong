@@ -256,19 +256,89 @@ nav a:hover, nav a.is-current, .post-back:hover { color: var(--accent); }
   letter-spacing: -.06em;
 }
 
-.about-grid {
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr);
-  gap: clamp(64px, 11vw, 170px);
-  align-items: start;
-  margin: 76px 0 max(15vh, 120px);
-}
-
 .about h2 span::after,
 .founder-story-copy strong::after { display: none; }
 
-.about-copy { max-width: 40ch; }
-.about-copy p { color: var(--ink); line-height: 1.85; }
-.about-copy .lead { font-size: 19px; font-weight: 700; }
+.home-founder {
+  display: grid;
+  grid-template-columns: minmax(300px, .82fr) minmax(0, 1.18fr);
+  gap: clamp(64px, 10vw, 150px);
+  align-items: start;
+  margin: 76px 0 max(15vh, 140px);
+}
+
+.home-founder-photo {
+  position: sticky;
+  top: 110px;
+  min-height: 680px;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+}
+
+.home-founder-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 680px;
+  object-fit: cover;
+  object-position: center 35%;
+  filter: saturate(.82) contrast(1.04);
+}
+
+.home-founder-photo figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 15px 18px;
+  color: var(--cream);
+  background: var(--accent);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+}
+
+.home-founder-story { padding-top: clamp(20px, 5vh, 58px); }
+
+.home-founder-kicker {
+  margin: 0 0 32px;
+  color: var(--accent);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .16em;
+}
+
+.home-founder-story h2 {
+  max-width: 9em;
+  font-size: clamp(54px, 5.2vw, 76px);
+  line-height: 1.02;
+}
+
+.home-founder-story h2 span { color: var(--accent); }
+.home-founder-mobile-break { display: none; }
+
+.home-founder-story > p:not(.home-founder-kicker) {
+  max-width: 40ch;
+  color: var(--ink);
+  line-height: 1.85;
+}
+
+.home-founder-lead {
+  margin-top: clamp(52px, 8vh, 84px);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.home-founder-story blockquote {
+  max-width: 38ch;
+  margin: 44px 0 0;
+  padding: 6px 0 6px 24px;
+  border-left: 3px solid var(--accent);
+  font-size: clamp(20px, 2vw, 27px);
+  font-weight: 650;
+  line-height: 1.55;
+}
 
 .text-link,
 .all-products-link {
@@ -610,6 +680,7 @@ footer p { color: var(--cream); opacity: .58; }
 }
 
 .founder-promise h2 { max-width: 12em; }
+.founder-mobile-break { display: none; }
 
 /* Story archive and posts */
 .story-page-hero {
@@ -675,7 +746,11 @@ footer p { color: var(--cream); opacity: .58; }
   .curated-featured-image { min-height: 70svh; border-right: 0; border-bottom: 1px solid var(--cream); }
   .curated-featured-copy { min-height: 60svh; }
   .curated-product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .about-grid, .founder-story, .customer-quote { grid-template-columns: 1fr; }
+  .home-founder, .founder-story, .customer-quote { grid-template-columns: 1fr; }
+  .home-founder { gap: 64px; }
+  .home-founder-photo { position: relative; top: auto; min-height: 72svh; }
+  .home-founder-photo img { min-height: 72svh; }
+  .home-founder-story { padding-top: 0; }
   .founder-story-head { position: static; }
   .founder-photo { min-height: 68svh; }
   .founder-photo-placeholder { min-height: 68svh; }
@@ -699,6 +774,9 @@ footer p { color: var(--cream); opacity: .58; }
   .contact-page-hero h1,
   .story-page-hero h1 { font-size: clamp(54px, 15.5vw, 68px); }
 
+  .about-page-hero h1 { font-size: clamp(48px, 14vw, 58px); }
+  .founder-mobile-break { display: inline; }
+
   .hero-description br,
   .product-page-hero > p br,
   .contact-page-hero > p br,
@@ -707,7 +785,13 @@ footer p { color: var(--cream); opacity: .58; }
 
   .hero-visual { height: 68svh; min-height: 520px; }
 
-  .about-grid { gap: 54px; margin: 60px 0 max(15vh, 100px); }
+  .home-founder { gap: 54px; margin: 60px 0 max(15vh, 110px); }
+  .home-founder-photo,
+  .home-founder-photo img { min-height: 0; height: 68svh; }
+  .home-founder-story h2 { font-size: clamp(44px, 12.5vw, 56px); }
+  .home-founder-mobile-break { display: initial; }
+  .home-founder-lead { margin-top: 54px; font-size: 18px; }
+  .home-founder-story blockquote { margin-top: 38px; padding-left: 20px; font-size: 20px; }
   .about h2, .section-heading h2, .stories h2, .contact h2,
   .founder-story-head h2, .principle-card h2, .timeline-head h2,
   .founder-promise h2, .story-archive h2, .contact-options h2,

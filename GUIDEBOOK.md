@@ -273,28 +273,77 @@ target="_blank" rel="noopener noreferrer"
 
 ## 4. Codex에서 필요한 스킬
 
-Codex의 스킬은 특정 작업을 위한 실행 지침입니다. 스킬 이름을 요청에 직접 넣거나, 해당 작업을 요청하면 Codex가 관련 스킬을 선택합니다.
+Codex의 **스킬**은 특정 작업을 위한 실행 지침 묶음입니다. 요청에 스킬 이름을 직접 넣거나, 해당 작업을 요청하면 Codex가 알맞은 스킬을 선택합니다.
 
-| 스킬 | 사용하는 순간 | 이 프로젝트에서 한 일 |
+### 확인하고 설치하기
+
+- **확인**: Codex 입력창에 `$`를 입력하면 사용 가능한 스킬 목록이 나옵니다. `/skills`도 같습니다.
+- **설치**: `$skill-installer <스킬이름>`
+- 설치 후에는 **Codex를 재시작**해야 새 스킬을 인식합니다.
+- **비활성화**: `~/.codex/config.toml`에 아래를 추가합니다.
+
+```toml
+[[skills.config]]
+path = "/path/to/skill/SKILL.md"
+enabled = false
+```
+
+### 기본 탑재 스킬 (설치 불필요)
+
+Codex에 함께 배포되는 system 스킬입니다. 누구나 바로 쓸 수 있습니다.
+
+| 스킬 | 사용하는 순간 |
+|---|---|
+| `imagegen` | 로고, 배너, 대표 이미지를 생성할 때 |
+| `skill-installer` | 다른 스킬을 설치할 때 |
+| `skill-creator` | 반복하는 작업을 나만의 스킬로 만들 때 |
+| `plugin-creator` | 스킬을 플러그인으로 묶어 배포할 때 |
+| `openai-docs` | Codex 사용법 자체를 Codex에게 물을 때 |
+
+### 필요할 때 설치하는 스킬
+
+`openai/skills` 저장소의 curated 목록에 있는 스킬입니다.
+
+| 스킬 | 사용하는 순간 | 설치 |
 |---|---|---|
-| `frontend-design` | 페이지를 새로 만들거나 디자인을 통일할 때 | 홈페이지 톤을 블로그·소개 페이지에 확장 |
-| `playwright` | 실제 브라우저에서 기능과 반응형 화면을 검증할 때 | 메뉴, 카드 이동, 데스크톱·390px 모바일 확인 |
-| `ai-seo` | 검색과 AI 답변 노출 구조를 정리할 때 | 메타데이터, 크롤링, llms.txt 범위 결정 |
-| `schema` | JSON-LD 구조화 데이터를 만들 때 | Organization, Product, BlogPosting, FAQPage 적용 |
-| `imagegen` | 대표 사진이나 제품 연출 이미지를 새로 생성할 때 | 현재는 사용하지 않았으며 실제 사진 교체가 우선 |
+| `playwright` | 실제 브라우저에서 기능과 반응형 화면을 검증할 때 | `$skill-installer playwright` |
+| `screenshot` | 화면을 캡처해 디자인을 점검할 때 | `$skill-installer screenshot` |
+| `vercel-deploy` | 배포와 도메인 연결 문제를 풀 때 | `$skill-installer vercel-deploy` |
+| `pdf` | 제품 소개서나 성분표 PDF에서 정보를 뽑을 때 | `$skill-installer pdf` |
+
+### 이 프로젝트에서 실제로 사용한 것
+
+- **`playwright`**: 메뉴, 카드 이동, 데스크톱과 390px 모바일 화면을 확인했습니다.
+- **`frontend-design`**: 홈페이지 톤을 블로그와 소개 페이지로 확장할 때 사용했습니다. 다만 이 스킬은 OpenAI 카탈로그가 아니라 [Anthropic 스킬 저장소](https://github.com/anthropics/skills/tree/main/frontend-design)에서 가져와 `~/.codex/skills/`에 둔 것입니다. **다른 사람의 Codex에는 없으므로 `$skill-installer frontend-design`은 동작하지 않습니다.**
+- **7단계(검색엔진·AI 설정)는 스킬 없이 프롬프트만으로** 처리했습니다. 메타데이터, sitemap, robots, JSON-LD, llms.txt 전용 스킬을 쓴 것이 아닙니다.
+- **`imagegen`은 사용하지 않았습니다.** 생성 이미지보다 실제 제품 사진으로 교체하는 편이 우선이기 때문입니다.
+
+### 스킬이 동작하는 환경
+
+| 환경 | 단독 스킬 |
+|---|---|
+| ChatGPT 데스크톱 앱 · Codex CLI · IDE 확장 | 동작합니다 |
+| 브라우저(chatgpt.com)에서 실행하는 Codex | 지원 범위가 달라 `$` 목록이 비어 보일 수 있습니다 |
+
+브라우저에서 Codex를 쓴다면 **스킬 이름 대신 지침을 프롬프트에 직접 적으세요.** 이 가이드북의 프롬프트가 그렇게 쓰여 있습니다.
 
 ### 스킬 요청 예시
-
-```text
-frontend-design 스킬을 사용해서 기존 홈페이지와 블로그 디자인을 통일해줘.
-```
 
 ```text
 playwright로 데스크톱과 390px 모바일에서 메뉴와 페이지 이동을 검증해줘.
 ```
 
 ```text
-ai-seo와 schema 스킬로 메타데이터와 JSON-LD를 점검해줘.
+imagegen으로 브랜드 로고를 만들어서 assets 폴더에 넣고 모든 페이지 헤더에 적용해줘.
+```
+
+스킬이 없을 때는 원하는 결과와 넣을 위치를 직접 말합니다.
+
+```text
+모든 페이지에 고유한 title과 meta description을 넣고
+sitemap.xml과 robots.txt를 만들어줘.
+story/admin.html은 sitemap에서 빼고 noindex, nofollow를 적용해줘.
+확인되지 않은 리뷰·별점·영양정보는 구조화 데이터에 넣지 마.
 ```
 
 스킬을 많이 쓰는 것보다 **현재 작업에 필요한 최소한의 스킬을 정확히 선택하는 것**이 중요합니다.

@@ -2,13 +2,27 @@
 
 ## 필요한 스킬
 
+확인은 입력창에 `$` 또는 `/skills` · 설치 후 **Codex 재시작**
+
+**기본 탑재 — 설치 불필요**
+
 | 작업 | 스킬 |
 |---|---|
-| 화면 제작·디자인 통일 | `frontend-design` |
+| 로고·배너·대표 이미지 생성 | `imagegen` |
+| 다른 스킬 설치 | `skill-installer` |
+| 나만의 스킬 만들기 | `skill-creator` |
+
+**필요할 때 설치 — `$skill-installer <이름>`**
+
+| 작업 | 스킬 |
+|---|---|
 | 실제 브라우저·모바일 검증 | `playwright` |
-| 검색·AI 노출 구조 | `ai-seo` |
-| JSON-LD 구조화 데이터 | `schema` |
-| 이미지 생성·편집이 필요할 때만 | `imagegen` |
+| 화면 캡처로 디자인 점검 | `screenshot` |
+| 배포·도메인 문제 해결 | `vercel-deploy` |
+| PDF에서 제품 정보 추출 | `pdf` |
+
+> 검색·AI 노출(SEO/AEO)과 JSON-LD 구조화 데이터는 **전용 스킬 없이 프롬프트로** 처리합니다.
+> 스킬은 ChatGPT 데스크톱 앱·Codex CLI·IDE 확장에서 동작하며, 브라우저(chatgpt.com) Codex에서는 `$` 목록이 비어 보일 수 있습니다.
 
 ## 좋은 요청 공식
 
